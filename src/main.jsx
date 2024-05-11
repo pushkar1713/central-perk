@@ -7,6 +7,7 @@ import Error from "./components/error";
 import Contact from "./components/contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/ProfileClass";
+import ErrorComp from "./components/errorComp";
 // named import
 // import { Title } from "./components/header"; // not need only here to explain
 
@@ -48,7 +49,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <Error />,
+    errorElement: <ErrorComp />,
     children: [
       {
         path: "/about", // parentPath/{path} => localhost:1244/about

@@ -49,3 +49,12 @@
 - code splitting
 - instamart component
 - lazy loading
+
+## Lecture 11 : (jo dikhta hai vo bikta hai)
+
+- style our app using tailwing
+
+## Lecture 12 : (data is the new oil)
+
+- prop drilling
+- lifting the state up
