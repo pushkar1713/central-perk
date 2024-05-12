@@ -58,3 +58,4 @@
 
 - prop drilling
 - lifting the state up
+- context api
