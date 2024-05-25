@@ -59,3 +59,13 @@
 - prop drilling
 - lifting the state up
 - context api
+
+## Lecture 13 : (react redux)
+
+- react-redux
+
+  - when we click on the button an action will be dispatched which will call a normal js function that will modify our desired slice in the redux store.
+  - we cannot directly modify the slice
+  - this function which is called to update the slice is known as reducer.
+  - if we want to read a slice we have to called a funtion knowns as selector() which will give us the information to update the component
+  - when we use the selector() it is known as subscribing to the store. it means that the componenet is reading something from the store (in sync with the store)
