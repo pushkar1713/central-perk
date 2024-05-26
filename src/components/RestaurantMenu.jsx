@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { addItem } from "../utils/cartslice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
   // how to read a dynamic url params
@@ -12,6 +14,12 @@ const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState({});
   const [resMenu, setResMenu] = useState([]);
   const [resDishes, setResDishes] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   async function getRestaurantinfo() {
     const data = await fetch(
@@ -65,6 +73,12 @@ const RestaurantMenu = () => {
                       alt=""
                       className="w-[100px]"
                     />
+                    <button
+                      className="p-2 m-2 bg-green-300"
+                      onClick={() => handleAddItem(item)}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 ))
               : category?.card?.card?.categories?.map((item, index) => (
@@ -89,6 +103,12 @@ const RestaurantMenu = () => {
                           alt=""
                           className="w-[100px]"
                         />
+                        <button
+                          className="p-2 m-2 bg-green-300"
+                          onClick={() => handleAddItem(dishName)}
+                        >
+                          Add to Cart
+                        </button>
                       </div>
                     ))}
                   </div>
