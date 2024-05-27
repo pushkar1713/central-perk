@@ -1,10 +1,4 @@
-const ItemCard = ({
-  name,
-  cuisines,
-  cloudinaryImageId,
-  avgRatingString,
-  id,
-}) => {
+const ItemCard = ({ name, description, imageId, price, id }) => {
   return (
     <div
       className="card w-[200px] h-[270px] border-black p-[10px] m-[20px] bg-[#00361b] rounded-lg hover:scale-[1.1] transition-all duration-[0.5s]"
@@ -14,14 +8,12 @@ const ItemCard = ({
         className="w-[100%] h-[150px] bg-cover rounded-lg mb-[10px] border-2 border-white"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
+          imageId
         }
       />
       <h2 className="text-white font-extrabold">{name}</h2>
-      <h3 className="text-white">
-        {cuisines[0]}, {cuisines[1]}
-      </h3>
-      <h4 className="text-white">{avgRatingString} 🌟</h4>
+      {/* <h3 className="text-white">{description}</h3> */}
+      <h4 className="text-white">₹ {price / 100}</h4>
     </div>
   );
 };
