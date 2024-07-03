@@ -10,9 +10,11 @@ const Cart = () => {
     dispatch(clearCart());
   };
   return (
-    <>
+    <div className="h-screen">
       <div>
-        <h1 className="font-bold text-3xl">Cart Items</h1>
+        <h1 className="font-bold text-3xl flex justify-center items-center">
+          Cart Items
+        </h1>
       </div>
       <div className="flex">
         {cartItems.map((items) => (
@@ -23,14 +25,14 @@ const Cart = () => {
         ))}
       </div>
       <button
-        className="bg-green-300 p-2 m-2"
+        className="bg-green-300 p-2 m-2 flex justify-center items-center"
         onClick={() => {
           handleClearCart();
         }}
       >
         Clear Cart
       </button>
-    </>
+    </div>
   );
 };
 

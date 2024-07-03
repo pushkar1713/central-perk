@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { IoCartOutline } from "react-icons/io5";
 
 const Title = () => (
   <Link to="/">
@@ -28,8 +29,9 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact us</Link>
           </li>
-          <li>
-            <Link to="/cart">Cart {cartItems.length} items</Link>
+          <li className="flex">
+            <IoCartOutline className="text-2xl mr-1" />
+            <Link to="/cart">{cartItems.length} items</Link>
           </li>
         </ul>
       </div>
