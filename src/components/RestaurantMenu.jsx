@@ -40,9 +40,9 @@ const RestaurantMenu = () => {
     <div className="overflow-hidden">
       {/* <h1>restaurant id: {resId}</h1> */}
       <div className="flex justify-center items-center m-2 p-2">
-        <div className="border-2 border-black flex w-[500px] justify-between">
+        <div className=" flex w-[500px] justify-between border-2 border-black">
           <div>
-            <h1 className="text-4xl">{resInfo.name}</h1>
+            <h1 className="text-3xl font-bold">{resInfo.name}</h1>
             <h3>{resInfo.costForTwoMessage}</h3>
             <h3>{resInfo.avgRatingString} Stars</h3>
           </div>
@@ -62,14 +62,14 @@ const RestaurantMenu = () => {
       {resMenu.length > 0 ? (
         resMenu.map((category) => (
           <div key={category?.card?.card?.title}>
-            <h1 className="text-3xl font-bold text-center">
+            <h1 className="text-3xl font-bold text-center text-white bg-[#00361b]">
               {category?.card?.card?.title}
             </h1>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-evenly">
               {category?.card?.card?.itemCards
                 ? category?.card?.card?.itemCards?.map((item) => (
                     <div
-                      className="text-red-600 border-2 border-black m-[20px]"
+                      className="text-red-600  m-[20px]"
                       key={item?.card?.info?.id}
                     >
                       {/* <div>{item?.card?.info?.description}</div> */}
@@ -84,7 +84,7 @@ const RestaurantMenu = () => {
                     /> */}
                       <ItemCard {...item?.card?.info} />
                       <button
-                        className="p-2 m-2 bg-green-300"
+                        className="p-2 m-2 bg-[#00361b] font-bold uppercase text-sm"
                         onClick={() => handleAddItem(item)}
                       >
                         Add to Cart
@@ -93,20 +93,16 @@ const RestaurantMenu = () => {
                     </div>
                   ))
                 : category?.card?.card?.categories?.map((item, index) => (
-                    <div
-                      key={index}
-                      className="text-red-600 border-2 border-black m-[20px]"
-                    >
-                      <h1 className="text-center font-bold">{item?.title}</h1>
-                      <div className=" flex">
+                    <div key={index} className="text-[00361b] m-[20px]">
+                      <h1 className=" font-bold text-2xl text-left ml-[100px]">
+                        {item?.title}
+                      </h1>
+                      <div className=" flex flex-wrap justify-evenly">
                         {item?.itemCards?.map((dishName, index) => (
-                          <div
-                            key={index}
-                            className="text-red-600 border-2 border-black m-[20px]"
-                          >
-                            <h1>{dishName?.card?.info?.name}</h1>
+                          <div key={index} className="text-[00361b] m-[10px]">
                             {/* {console.log(dishName?.card?.info?.description)} */}
                             {/* <div>{dishName?.card?.info?.description}</div> */}
+                            {/* <h1>{dishName?.card?.info?.name}</h1>
                             <img
                               src={
                                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
@@ -114,16 +110,19 @@ const RestaurantMenu = () => {
                               }
                               alt=""
                               className="w-[100px]"
-                            />
-                            <button
-                              className="p-2 m-2 bg-green-300"
-                              onClick={() => handleAddItem(dishName)}
-                            >
-                              Add to Cart
-                            </button>
-                            <PopUp
-                              description={dishName?.card?.info?.description}
-                            />
+                            /> */}
+                            <ItemCard {...dishName?.card?.info} />
+                            <div className="ml-4">
+                              <button
+                                className="p-2 m-2 bg-[#00361b] text-white rounded-md font-bold uppercase text-sm"
+                                onClick={() => handleAddItem(dishName)}
+                              >
+                                Add to Cart
+                              </button>
+                              <PopUp
+                                description={dishName?.card?.info?.description}
+                              />
+                            </div>
                           </div>
                         ))}
                       </div>
