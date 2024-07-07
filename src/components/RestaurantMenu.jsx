@@ -69,7 +69,7 @@ const RestaurantMenu = () => {
               {category?.card?.card?.itemCards
                 ? category?.card?.card?.itemCards?.map((item) => (
                     <div
-                      className="text-red-600  m-[20px]"
+                      className="text-[#00361b]  m-[10px]"
                       key={item?.card?.info?.id}
                     >
                       {/* <div>{item?.card?.info?.description}</div> */}
@@ -84,7 +84,7 @@ const RestaurantMenu = () => {
                     /> */}
                       <ItemCard {...item?.card?.info} />
                       <button
-                        className="p-2 m-2 bg-[#00361b] font-bold uppercase text-sm"
+                        className="p-2 m-2 bg-[#00361b] text-white rounded-md font-bold uppercase text-sm"
                         onClick={() => handleAddItem(item)}
                       >
                         Add to Cart
@@ -93,7 +93,7 @@ const RestaurantMenu = () => {
                     </div>
                   ))
                 : category?.card?.card?.categories?.map((item, index) => (
-                    <div key={index} className="text-[00361b] m-[20px]">
+                    <div key={index} className="text-[#00361b] m-[20px]">
                       <h1 className=" font-bold text-2xl text-left ml-[100px]">
                         {item?.title}
                       </h1>
