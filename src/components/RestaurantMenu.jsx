@@ -62,9 +62,15 @@ const RestaurantMenu = () => {
       {resMenu.length > 0 ? (
         resMenu.map((category) => (
           <div key={category?.card?.card?.title}>
-            <h1 className="text-3xl font-bold text-center text-white bg-[#00361b]">
-              {category?.card?.card?.title}
-            </h1>
+            <div className="flex justify-center items-center">
+              {category?.card?.card?.title ? (
+                <h1 className="text-3xl font-bold text-white bg-[#00361b] p-2 rounded-md">
+                  {category?.card?.card?.title}
+                </h1>
+              ) : (
+                <div></div>
+              )}
+            </div>
             <div className="flex flex-wrap justify-evenly">
               {category?.card?.card?.itemCards
                 ? category?.card?.card?.itemCards?.map((item) => (
@@ -83,20 +89,24 @@ const RestaurantMenu = () => {
                       className="w-[100px]"
                     /> */}
                       <ItemCard {...item?.card?.info} />
-                      <button
-                        className="p-2 m-2 bg-[#00361b] text-white rounded-md font-bold uppercase text-sm"
-                        onClick={() => handleAddItem(item)}
-                      >
-                        Add to Cart
-                      </button>
-                      <PopUp description={item?.card?.info?.description} />
+                      <div className="ml-4">
+                        <button
+                          className="p-2 m-2 bg-[#00361b] text-white rounded-md font-bold uppercase text-sm"
+                          onClick={() => handleAddItem(item)}
+                        >
+                          Add to Cart
+                        </button>
+                        <PopUp description={item?.card?.info?.description} />
+                      </div>
                     </div>
                   ))
                 : category?.card?.card?.categories?.map((item, index) => (
                     <div key={index} className="text-[#00361b] m-[20px]">
-                      <h1 className=" font-bold text-2xl text-left ml-[100px]">
-                        {item?.title}
-                      </h1>
+                      <div className="flex">
+                        <h1 className=" font-extrabold text-2xl text-left ml-[120px] text-white bg-[#00361b] p-2 rounded-md">
+                          {item?.title}
+                        </h1>
+                      </div>
                       <div className=" flex flex-wrap justify-evenly">
                         {item?.itemCards?.map((dishName, index) => (
                           <div key={index} className="text-[00361b] m-[10px]">
@@ -132,7 +142,7 @@ const RestaurantMenu = () => {
           </div>
         ))
       ) : (
-        <h1>"not"</h1>
+        <h1 className="h-screen">"not"</h1>
       )}
     </div>
   );

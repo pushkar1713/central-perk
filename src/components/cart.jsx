@@ -16,7 +16,7 @@ const Cart = () => {
           Cart Items
         </h1>
       </div>
-      <div className="flex">
+      <div className="flex justify-evenly flex-wrap">
         {cartItems.map((items) => (
           <ItemCard
             key={items?.card?.info?.id}
@@ -24,14 +24,16 @@ const Cart = () => {
           ></ItemCard>
         ))}
       </div>
-      <button
-        className="bg-green-300 p-2 m-2 flex justify-center items-center"
-        onClick={() => {
-          handleClearCart();
-        }}
-      >
-        Clear Cart
-      </button>
+      <div className="flex justify-center">
+        <button
+          className="bg-green-300 p-2 m-2 items-center w-[100px]"
+          onClick={() => {
+            handleClearCart();
+          }}
+        >
+          Clear Cart
+        </button>
+      </div>
     </div>
   );
 };

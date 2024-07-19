@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 function filterData(searchInput, allRestaurant) {
   const filterData = allRestaurant.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
+    restaurant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase()),
   );
   return filterData;
 }
@@ -23,16 +23,18 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://foodfire.onrender.com/api/restaurants?lat=32.726601&lng=74.857025"
+      "https://foodfire.onrender.com/api/restaurants?lat=32.726601&lng=74.857025",
     );
     const json = await data.json();
     console.log(json);
     // optional chaining
     setAllRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
     );
     setFilteredRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
     );
   }
 
@@ -123,7 +125,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="restaurant-list flex flex-wrap">
+      <div className="restaurant-list flex flex-wrap justify-evenly">
         {/* <RestaurantCard restaurant={restaurantList[0]} />
         <RestaurantCard restaurant={restaurantList[1]} />
         <RestaurantCard restaurant={restaurantList[2]} />
