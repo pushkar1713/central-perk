@@ -10,7 +10,7 @@ const Cart = () => {
     dispatch(clearCart());
   };
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <div>
         <h1 className="font-bold text-3xl flex justify-center items-center font-bold">
           Cart Items
