@@ -40,15 +40,21 @@ const RestaurantMenu = () => {
     <div className="overflow-hidden">
       {/* <h1>restaurant id: {resId}</h1> */}
       <div className="flex justify-center items-center m-2 p-2">
-        <div className=" flex w-[500px] justify-between border-2 border-black">
-          <div>
-            <h1 className="text-3xl font-bold">{resInfo.name}</h1>
-            <h3>{resInfo.costForTwoMessage}</h3>
-            <h3>{resInfo.avgRatingString} Stars</h3>
+        <div className=" flex w-[500px] h-[150px] border-2 border-white justify-between rounded">
+          <div className="flex justify-center items-center w-[60%] bg-gradient-to-r from-emerald-500 to-emerald-900 border-r-white border">
+            <div className="flex flex-col justify-center items-center">
+              <h1 className="text-3xl font-bold text-white">{resInfo.name}</h1>
+              <h3 className="font-bold text-white">
+                {resInfo.costForTwoMessage}
+              </h3>
+              <h3 className="font-bold text-white">
+                {resInfo.avgRatingString} Stars
+              </h3>
+            </div>
           </div>
-          <div>
+          <div className="justify-end">
             <img
-              className="w-[150px]"
+              className="w-[200px] h-[146px] border-white border"
               src={
                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
                 resInfo.cloudinaryImageId
